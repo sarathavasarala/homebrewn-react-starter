@@ -1,7 +1,7 @@
 # homebrewn-react-starter
 
 package.json for your reference.
-`
+	~~~~
   "name": "homebrewn-react-starter",
   "version": "1.0.0",
   "main": "index.js",
@@ -31,4 +31,4 @@ package.json for your reference.
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   }
-}`
+}	~~~~
