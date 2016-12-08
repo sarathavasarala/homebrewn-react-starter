@@ -1,24 +1,11 @@
 $background: #eee;
-
+html,
+body,
+ul,
+ol {
+   margin: 0;
+  padding: 0;
+}
 body{
 	background: $background;
-}
-.hnCard, .shell{
-	padding:15px;
-	background:white;
-	border:1px solid #ddd;
-	margin-bottom:10px;
-}
-.wrapper{
-	width:600px;
-	margin: 40px auto;
-}
-.line.long{
-	width:80%;
-}
-.line{
-	width:60%;
-	margin-bottom:5px;
-	background:#ccc;
-	height:10px;
 }

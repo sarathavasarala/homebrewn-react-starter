@@ -40,7 +40,12 @@ module.exports = {
 				include: PATHS.source
 			},
 			{
-			    test: /\.(eot|woff|woff2|ttf|svg|jpg|png)$/,
+				test: /\.(jpg|png)$/,
+				loader: 'url?limit=8192?name=[path][name].[ext]&context=./assets',
+				include: PATHS.assets
+			},
+			{
+			    test: /\.(eot|woff|woff2|ttf|svg|png|jpg)$/,
 			    loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
 			}
 		]
@@ -59,9 +64,27 @@ module.exports = {
             minChunks: Infinity
         }),
         new ExtractTextPlugin("[name].css"),
+        new purify({
+            basePath: './',
+            paths: [
+                "src/*.html",
+                "src/*.js"
+            ],
+            purifyOptions: {
+            	minify:true,
+            	info:true
+            }
+        }),
+        new webpack.optimize.DedupePlugin(),
+	    new webpack.optimize.OccurrenceOrderPlugin(),
+	    new webpack.optimize.UglifyJsPlugin({ 
+	    	compress: {
+	    		warnings:false
+	    	}
+	    }),
 	    new webpack.DefinePlugin({
 		    'process.env': {
-		        NODE_ENV: JSON.stringify("development"),
+		        NODE_ENV: JSON.stringify("production"),
 		    },
 		})
     ]
